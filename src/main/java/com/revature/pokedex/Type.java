@@ -1,0 +1,6 @@
+package com.revature.pokedex;
+
+public enum Type
+{
+    NORMAL, FLYING, FIGHTING, POISON, GROUND, ROCK, BUG, GHOST, STEEL, FIRE, WATER, GRASS, ELECTRIC, PSYCHIC, ICE, DRAGON, DARK, FAIRY;
+}
