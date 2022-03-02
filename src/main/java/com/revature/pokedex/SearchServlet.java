@@ -57,12 +57,17 @@ public class SearchServlet extends HttpServlet
             {
                 line = scanner.next();
 
-                if (userInput == null || userInput.equals(" "))
+                if (line.substring(0, 2).equalsIgnoreCase("ID"))
                 {
-                    response.getWriter().println(line.replaceAll("Pok.mon", "Pokémon") + "<br><br>");
+                    line = scanner.next();
                 }
 
-                else if (pokemon.getName().equalsIgnoreCase(userInput))
+                if (userInput == null || userInput.equals(" ") || userInput.equals(""))
+                {
+                    response.getWriter().println(line + "<br><br>");
+                }
+
+                else if (line.contains(userInput))
                 {
                     line.replaceAll("Pok.mon", "Pokémon");
                     line.replaceAll("Flab.b.", "Flabébé");

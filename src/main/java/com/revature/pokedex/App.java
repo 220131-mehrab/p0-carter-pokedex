@@ -13,7 +13,7 @@ public class App
 
         Tomcat server = new Tomcat();
         server.setBaseDir(System.getProperty("java.io.tmpdir"));
-        server.setPort(8080);
+        server.setPort(8081);
         server.getConnector();
         server.addContext(webAppName, null);
 
