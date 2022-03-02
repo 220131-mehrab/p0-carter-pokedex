@@ -20,7 +20,7 @@ public class SearchServlet extends HttpServlet
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
-        String userInput = request.getParameter("searchName");
+        String userInput = request.getParameter("searchName").toUpperCase();
         String line;
         String[] pokemonList = new String[15];
 
@@ -60,7 +60,7 @@ public class SearchServlet extends HttpServlet
                     response.getWriter().println(line + "<br><br>");
                 }
 
-                else if (line.contains(userInput))
+                else if (line.toUpperCase().contains(userInput))
                 {
                     response.getWriter().println(line);
                 }
