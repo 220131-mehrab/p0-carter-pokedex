@@ -11,18 +11,15 @@ public class App
         //Setting the context path to a default blank name
         String webAppName = "";
 
-        PokemonInterface pokemonInterface;
-        pokemonInterface = new CSVRepository("NationalPokedex.csv");
-        PokemonService pokemonService = new PokemonService(pokemonInterface);
-
         Tomcat server = new Tomcat();
         server.setBaseDir(System.getProperty("java.io.tmpdir"));
-        server.setPort(0);
+        server.setPort(8080);
         server.getConnector();
         server.addContext(webAppName, null);
 
         server.addServlet(webAppName, "defaultServlet", new DefaultServlet()).addMapping("/*");
-        server.addServlet(webAppName, "pokemonServlet", new PokemonServlet(pokemonService)).addMapping("/pokemon");
+        server.addServlet(webAppName, "pokemonServlet", new PokemonServlet()).addMapping("/pokemon");
+        server.addServlet(webAppName, "searchServlet", new SearchServlet()).addMapping("/search");
 
         try
         {

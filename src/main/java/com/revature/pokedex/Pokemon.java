@@ -1,91 +1,175 @@
 package com.revature.pokedex;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
-
 public class Pokemon
 {
-    private int id;
-    private String name;
-    private List<Type> types;
+    private int id, hp, atk, def, spAtk, spDef, speed;
+    private float ht, wt;
+    private String name, species;
+    private Enum<Type> type1, type2;
 
-    public Pokemon()
-    {
-        this.types = new ArrayList<>();
+    public Pokemon(int id, String name, Enum<Type> type1, Enum<Type> type2, int hp, int atk, int def, int sAtk, int sDef, int spd, String species, float ht, float wt){
+        this.id = id;
+        this.name = name;
+        this.type1 = type1;
+        this.type2 = type2;
+        this.hp = hp;
+        this.atk = atk;
+        this.def = def;
+        this.spAtk = sAtk;
+        this.spDef = sDef;
+        this.speed = spd;
+        this.species = species;
+        this.ht = ht;
+        this.wt = wt;
     }
 
-    public static Pokemon of()
+    public Pokemon() { }
+
+    public Pokemon build()
     {
         return new Pokemon();
     }
 
-    public Pokemon id(int id)
+    public int getId()
+    {
+        return id;
+    }
+
+    public Pokemon setId(int id)
     {
         this.id = id;
         return this;
     }
 
-    public Pokemon name(String name)
+    public int getHp()
+    {
+        return hp;
+    }
+
+    public Pokemon setHp(int hp)
+    {
+        this.hp = hp;
+        return this;
+    }
+
+    public int getAtk()
+    {
+        return atk;
+    }
+
+    public Pokemon setAtk(int atk)
+    {
+        this.atk = atk;
+        return this;
+    }
+
+    public int getDef()
+    {
+        return def;
+    }
+
+    public Pokemon setDef(int def)
+    {
+        this.def = def;
+        return this;
+    }
+
+    public int getSpAtk()
+    {
+        return spAtk;
+    }
+
+    public Pokemon setSpAtk(int spAtk)
+    {
+        this.spAtk = spAtk;
+        return this;
+    }
+
+    public int getSpDef()
+    {
+        return spDef;
+    }
+
+    public Pokemon setSpDef(int spDef)
+    {
+        this.spDef = spDef;
+        return this;
+    }
+
+    public int getSpeed()
+    {
+        return speed;
+    }
+
+    public Pokemon setSpeed(int speed)
+    {
+        this.speed = speed;
+        return this;
+    }
+
+    public String getName()
+    {
+        return name;
+    }
+
+    public Pokemon setName(String name)
     {
         this.name = name;
         return this;
     }
 
-    public Pokemon type1(String type1)
+    public float getHt()
     {
-        types.add(0, Type.valueOf(type1.toUpperCase()));
+        return ht;
+    }
+
+    public Pokemon setHt(int ht)
+    {
+        this.ht = ht;
         return this;
     }
 
-    public Pokemon type2(String type2)
+    public float getWt()
     {
-        try
-        {
-            types.add(1, Type.valueOf(type2.toUpperCase()));
-        }
-        catch (IllegalArgumentException ex) {}
+        return wt;
+    }
 
+    public Pokemon setWt(int wt)
+    {
+        this.wt = wt;
         return this;
     }
 
-    public int getId() { return id; }
-
-    public void setId(int id) { this.id = id; }
-
-    public String getName() { return name; }
-
-    public void setName(String name) { this.name = name; }
-
-    public List<Type> getTypes() { return types; }
-
-    public void setTypes(List<Type> types) { this.types = types; }
-
-    @Override
-    public String toString()
+    public Enum<Type> getType1()
     {
-        return "Pokemon {" + "id=" + id + ", name='" + name + '\'' + ", types=" + types + '}';
+        return type1;
     }
 
-    @Override
-    public boolean equals(Object object)
+    public Pokemon setType1(Enum<Type> type1)
     {
-        if (this == object) return true;
-        if (object == null || getClass() != object.getClass()) return false;
-
-        Pokemon pokemon = (Pokemon) object;
-
-        return id == pokemon.id && name.equals(pokemon.name) && types.equals(pokemon.types);
+        this.type1 = type1;
+        return this;
     }
 
-    @Override
-    public int hashCode()
+    public Enum<Type> getType2()
     {
-        return Objects.hash(id, name, types);
+        return type2;
     }
 
-    public int compareTo(Pokemon pokemon)
+    public Pokemon setType2(Enum<Type> type2)
     {
-        return Integer.compare(this.id, pokemon.getId());
+        this.type2 = type2;
+        return this;
+    }
+
+    public String getSpecies()
+    {
+        return species;
+    }
+
+    public Pokemon setSpecies(String species)
+    {
+        this.species = species;
+        return this;
     }
 }
